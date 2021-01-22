@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.3.0'
+}
+
+bukkit {
+    name = 'Frame-API'
+    main = 'com.luismartis.frameapi.Main'
+    version = '1.0.0'
+    author = 'LuisMaartins'
+    depend = ['ProtocolLib']
+}
+
+group 'com.luismartins.frameapi'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.dmulloy2.net/nexus/repository/public/' }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    compileOnly files('../Libraries/paperspigot.jar')
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib-API", version: "4.2.1"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
