@@ -36,6 +36,7 @@ public class Main extends JavaPlugin {
             getDataFolder().mkdir();
         }
         saveDefaultConfig();
+        saveConfig();
         this.commandMap = getCommandMap();
         frameManager = new FrameManager(getDataFolder());
         frameManager.enable();
