@@ -22,8 +22,8 @@ repositories {
 compileJava.options.encoding = 'UTF-8'
 
 dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.projectlombok:lombok:1.18.18'
+    annotationProcessor 'org.projectlombok:lombok:1.18.18'
 
     compileOnly files('../Libraries/paperspigot.jar')
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib-API", version: "4.2.1"
